@@ -7,3 +7,4 @@ class Solution:
         minNum = min(m - 1, n - 1)
         down = math.factorial(minNum) * math.factorial(top - minNum)
         return int(math.factorial(top) / down)
+        #test
