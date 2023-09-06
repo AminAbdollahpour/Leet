@@ -9,5 +9,3 @@ class Solution:
         return int(math.factorial(top) / down)
 
 
-s = Solution()
-print(s.unique_paths(3, 7))
