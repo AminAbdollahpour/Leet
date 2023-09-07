@@ -16,5 +16,3 @@ class Solution:
         return False
 
 
-s = Solution()
-print(s.canPlaceFlowers(flowerbed=[1, 0, 0, 0, 1, 0, 0], n=2))
