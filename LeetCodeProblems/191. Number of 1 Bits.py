@@ -4,5 +4,3 @@ class Solution:
         return binary.count('1')
 
 
-s = Solution()
-print(s.hammingWeight(n =0o00000000000000000000000000001011))
