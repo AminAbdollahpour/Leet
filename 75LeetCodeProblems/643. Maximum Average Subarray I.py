@@ -3,15 +3,12 @@ from typing import List
 
 class Solution:
     def findMaxAverage(self, nums: List[int], k: int) -> float:
-        maximum = 0
-        if len(nums) <= k:
-            return sum(nums) / k
-        else:
-            for i in range(len(nums) - (k-1)):
-                currentMax = sum(nums[i:k+i]) / k
-                maximum = max(maximum, currentMax)
-        return maximum
+        current_sum = 0
 
-
-s = Solution()
-print(s.findMaxAverage(nums = [0,1,1,3,3], k = 4))
+        for i in range(k):
+            current_sum += nums[i]
+        max_sum = current_sum
+        for i in range(k, len(nums)):
+            current_sum += nums[i] - nums[i - k]
+            max_sum = max(max_sum, current_sum)
+        return max_sum / k
