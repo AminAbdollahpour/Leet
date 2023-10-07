@@ -1,10 +1,10 @@
 package LeetCodeProblems;
 
-public class InegerBreakJAVA {
+public class InegerBreak343 {
     public static void main(String[] args) {
         class Solution {
             public int integerBreak(int n) {
-                if (n <= 1){
+                if (n <= 1) {
                     return 0;
                 }
                 if (n == 2) {
@@ -15,11 +15,11 @@ public class InegerBreakJAVA {
                 }
                 int result = 1;
                 while (n > 4) {
-                    result *= n;
+                    result *= 3;
                     n -= 3;
 
                 }
-                return result * 3;
+                return result * n;
             }
         }
     }
