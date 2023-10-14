@@ -1,4 +1,4 @@
-package LeetCodeProblems;
+package LeetCodeInJAVA;
 
 public class InegerBreak343 {
     public static void main(String[] args) {
@@ -21,7 +21,10 @@ public class InegerBreak343 {
                 }
                 return result * n;
             }
+
         }
+
+
     }
 
 
