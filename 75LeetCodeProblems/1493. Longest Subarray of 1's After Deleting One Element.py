@@ -3,23 +3,21 @@ from typing import List
 
 class Solution:
     def longestSubarray(self, nums: List[int]) -> int:
-        result = 0
+        n = len(nums)
 
-        def longest_ones(arr):
-            current_count = 0
-            max_count = 0
-            for number in arr:
-                if number == 1:
-                    current_count += 1
-                    max_count = max(max_count, current_count)
-                elif number == 0:
-                    current_count = 0
-            return max_count
+        left = 0
+        zeros = 0
+        ans = 0
 
-        for i in range(len(nums)):
-            result = max(longest_ones(nums[:i] + nums[i + 1:]), result)
-        return result
+        for right in range(n):
+            if nums[right] == 0:
+                zeros += 1
 
+            while zeros > 1:
+                if nums[left] == 0:
+                    zeros -= 1
+                left += 1
 
-s = Solution()
-print(s.longestSubarray(nums = [1,1,1]))
+            ans = max(ans, right - left + 1 - zeros)
+
+        return ans - 1 if ans == n else ans
