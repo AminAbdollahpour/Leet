@@ -9,5 +9,5 @@ class Solution:
             result.append(nums[i + n])
 
         return result
-s = Solution()
-print(s.shuffle(nums = [2,5,1,3,4,7], n = 3))
+
+
