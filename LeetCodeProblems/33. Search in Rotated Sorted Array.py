@@ -3,25 +3,26 @@ from typing import List
 
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        def sorter(arr: List[int]) -> List:
-            index = arr.index(min(arr))
-            return arr[index:] + arr[:index]
-
-        def binary_search(list, target):
-            low = 0
-            high = len(list) - 1
-
-            while low <= high:
-                mid = (low + high) // 2
-
-                if list[mid] == target:
+        def binary_search(arr: List[int]) -> int:
+            left = 0
+            right = len(arr) - 1
+            mid = (left + right) // 2
+            while left <= right:
+                if arr[mid] == target:
                     return mid
-                elif list[mid] < target:
-                    low = mid + 1
+                elif arr[mid] < target:
+                    left = mid + 1
                 else:
-                    high = mid - 1
-
+                    right = mid - 1
             return -1
 
-        srted = sorter(nums)
-        return binary_search(srted, target)
+        up = binary_search(nums[min(nums):])
+        down = binary_search(nums[:min(nums)])
+        if up and down == -1:
+            return -1
+        elif up != -1:
+            return up
+
+
+s = Solution()
+print(s.search(nums=[4, 5, 6, 7, 0, 1, 2], target=0))
