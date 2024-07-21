@@ -4,14 +4,23 @@ import numpy as np
 
 class Solution:
     def luckyNumbers(self, matrix: List[List[int]]) -> List[int]:
-        arr = np.array(matrix)
+        rows , columns = len(matrix) , len(matrix[0])
         lucky_numbers = []
-        for i in range(len(matrix)):
-            min_row = min(matrix[i])
-            min_index = matrix[i].index(min_row)
-            max_column = max(arr[:, min_index])
-            if min_row >= max_column:
-                lucky_numbers.append(min_row)
+
+        minimum = set()
+        for row in range(rows):
+            minimum.add(min(matrix[row]))
+
+        maximum = set()
+        for column in range(columns):
+            current_max = matrix[0][column]
+            for row in range(rows):
+                current_max = max(current_max , matrix[row][column])
+            maximum.add(current_max)
+
+        for number in minimum:
+            if number in maximum:
+                lucky_numbers.append(number)
 
         return lucky_numbers
 
