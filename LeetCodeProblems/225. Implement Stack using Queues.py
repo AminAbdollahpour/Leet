@@ -1,7 +1,5 @@
-from collections import deque
-
-
 class MyStack:
+
 
     def __init__(self):
         self.q = deque()
@@ -10,12 +8,12 @@ class MyStack:
         self.q.append(x)
 
     def pop(self) -> int:
-        for i in range(len(self.q) - 1):
-            self.push(self.q.popleft())
-        return self.q.popleft()
+        return self.q.pop()
 
     def top(self) -> int:
         return self.q[-1]
 
     def empty(self) -> bool:
-        return len(self.q) == 0
+        if len(self.q) == 0:
+            return True
+        return False
